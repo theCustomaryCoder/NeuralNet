@@ -3,8 +3,8 @@
 #include <math.h>
 #include <fstream>
 
-#ifndef NEURALNET_H
-#define NEURALNET_H
+#ifndef NEURALNET_HPP
+#define NEURALNET_HPP
 #define MAX_NODES_PER_LAYER 10
 #define MAX_NUMBER_OF_HIDDEN_LAYERS 30
 #define MAX_SIZE_OF_TRAINING_SET 40
@@ -88,9 +88,7 @@ class InputLayer {
             this->numberOfNodes = nodes;
         }
 
-        InputLayer(){
-
-        }
+        InputLayer() = default;
 
         void setNodeValue(int node, double value){
             if(node < numberOfNodes){
@@ -155,9 +153,7 @@ class OutputLayer {
             }
         }
 
-        OutputLayer(){
-
-        }
+        OutputLayer() = default;
 
         void computeLayerActivation(HiddenLayerIF *prevLayer){
             for(int i = 0; i < this->numberOfNodes; i++){
@@ -262,9 +258,7 @@ class HiddenLayer :public HiddenLayerIF {
             }
         }
 
-        HiddenLayer(){
-            
-        }
+        HiddenLayer() = default;
 
         void computeLayerActivation(HiddenLayerIF *prevLayer){
             for(int i = 0; i < this->getNumberOfNodes(); i++){

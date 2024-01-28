@@ -469,7 +469,7 @@ class NeuralNet {
             int setSize = dataset.getSizeOfTrainingSet();
             int correct = 0;
             for(int i = 1; i <= epochs; i++){
-                if(debugInfoOutput || i== epochs){
+                if(debugInfoOutput){
                     printf("Epoch: %d\n", i);
                 }
                 dataset.shufflePlaylist();

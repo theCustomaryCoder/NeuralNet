@@ -462,13 +462,6 @@ class NeuralNet {
             this->numberOfHiddenLayers = numberOfHiddenLayers;
         }
 
-        NeuralNet(ImportData importData){
-            this->inputLayer = &importData.inputLayer;
-            this->hiddenLayers = importData.hiddenLayers;
-            this->outputLayer = &importData.outputLayer;
-            this->numberOfHiddenLayers = importData.numberOfHiddenLayers;
-        }
-
         NeuralNet() = default;
 
         void train(TrainingData trainingData, int epochs, double learningRate, bool debugInfoOutput){
@@ -582,6 +575,12 @@ class NeuralNet {
                 }
                 correct = 0;
             }
+        }
+        void loadImport(ImportData importData){
+            this->inputLayer = &importData.inputLayer;
+            this->hiddenLayers = importData.hiddenLayers;
+            this->outputLayer = &importData.outputLayer;
+            this->numberOfHiddenLayers = importData.numberOfHiddenLayers;
         }
 
         void saveToFile(char *path){

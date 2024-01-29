@@ -570,6 +570,37 @@ class NeuralNet {
                 correct = 0;
             }
         }
+
+        double *eval(double* input){
+            //Setup for inputLayer
+            for(int nodeNumber = 0; nodeNumber < (this->inputLayer->getNumberOfNodes()); nodeNumber++){
+                this->inputLayer->setNodeValue(nodeNumber, input[nodeNumber]);
+            }
+
+            //Pass data through hidden layers
+            if(this->numberOfHiddenLayers >= 1){
+                this->hiddenLayers[0].computeLayerActivation((this->inputLayer));
+            }
+            if(this->numberOfHiddenLayers > 1){
+                for(int layerNumber = 1; layerNumber < this->numberOfHiddenLayers; layerNumber++){
+                    this->hiddenLayers[layerNumber].computeLayerActivation(&(this->hiddenLayers[layerNumber - 1]));
+                }
+            }
+
+            //Pass data through outputLayer
+            if(this->numberOfHiddenLayers == 0){
+                this->outputLayer->computeLayerActivation(this->inputLayer);
+            }
+            else{
+                this->outputLayer->computeLayerActivation(&(this->hiddenLayers[this->numberOfHiddenLayers - 1]));
+            }
+            static double out[MAX_NODES_PER_LAYER];
+            for(int outLoop = 0; outLoop < this->outputLayer->getNumberOfNodes(); outLoop++){
+                out[outLoop] = this->outputLayer->getNodeValue(outLoop);
+            }
+            return out;
+        }
+
         void loadImport(ImportData importData){
             this->inputLayer = &importData.inputLayer;
             this->hiddenLayers = importData.hiddenLayers;

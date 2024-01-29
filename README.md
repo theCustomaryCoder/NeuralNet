@@ -6,3 +6,7 @@ In this kind of cases, some sort of neural network might come in handy...
 Please concider giving this project a star, so that other people will see it too.
 
 PS: the documetation is still in work.
+
+# Sponsors:
+
+Be the 1st sponsor!

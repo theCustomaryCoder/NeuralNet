@@ -8,7 +8,7 @@ Any questions? Then ask the [Discord](https://discord.gg/XTgedujqkw) or open an 
 
 ## How to set up a project?
 
-If you decided to use my library and don't know how to set up a project, just check the project's [wiki](https://github.com/Dome05/NeuralNet/wiki/Gettin-started). It contains a complete documentation of the project.
+If you decided to use my library and don't know how to set up a project, just check the project's [wiki](https://github.com/Dome05/NeuralNet/wiki/Getting-started). It contains a complete documentation of the project.
 
 # Sponsors:
 
